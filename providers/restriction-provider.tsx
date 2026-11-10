@@ -29,7 +29,7 @@ const RestrictionContext = createContext<RestrictionContextType>({
 export const useRestriction = () => useContext(RestrictionContext);
 
 export function RestrictionProvider({ children }: { children: ReactNode }) {
-  const { data: session } = authClient.useSession();
+  const { data: session, status } = authClient.useSession();
   const [isRestricted, setIsRestricted] = useState(false);
   const [restriction, setRestriction] = useState<UserRestriction | null>(null);
   const [restrictions, setRestrictions] = useState<UserRestriction[] | null>(
